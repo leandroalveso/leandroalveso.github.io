@@ -138,9 +138,9 @@ export default function Home() {
         <div className="w-full bg-white shadow-md rounded-lg p-6">
           <h2 className="text-2xl font-semibold mb-4">About Me</h2>
           <p className="text-gray-600">
-            With over 8 years of experience, I specialize in designing, implementing, 
-            and optimizing cloud-based data and software platforms. 
-            My core expertise is data engineering, distributed systems, and cloud infrastructure automation.
+            With over 9 years of experience, 
+            I specialize in designing, implementing, and optimizing cloud-based data and software platforms. 
+            My core areas of expertise include data engineering, distributed systems, and cloud infrastructure automation.
           </p>
         </div>
       </main>
