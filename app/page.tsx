@@ -138,16 +138,15 @@ export default function Home() {
         <div className="w-full bg-white shadow-md rounded-lg p-6">
           <h2 className="text-2xl font-semibold mb-4">About Me</h2>
           <p className="text-gray-600">
-            I&apos;m a passionate software developer with a keen interest in creating 
-            innovative solutions. Currently exploring the intersections of 
-            technology and creativity, I enjoy building web applications 
-            that are both functional and user-friendly.
+            With over 8 years of experience, I specialize in designing, implementing, 
+            and optimizing cloud-based data and software platforms. 
+            My core expertise is data engineering, distributed systems, and cloud infrastructure automation.
           </p>
         </div>
       </main>
 
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-gray-600">
-        <p>&copy; 2024 Leandro Alves. All rights reserved.</p>
+        <p>&copy; 2025 Leandro Alves. All rights reserved.</p>
       </footer>
     </div>
   );
