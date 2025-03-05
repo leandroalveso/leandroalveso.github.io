@@ -86,7 +86,7 @@ export default function Home() {
                 <Linkedin size={24} />
               </a>
               <a 
-                href="https://github.com/your-github-username" 
+                href="https://github.com/leandroalveso" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-gray-800 transition-colors"
@@ -94,7 +94,7 @@ export default function Home() {
                 <Github size={24} />
               </a>
               <a 
-                href="mailto:your-email@example.com"
+                href="mailto:engleandroalveso@gmail.com"
                 className="hover:text-red-600 transition-colors"
               >
                 <Mail size={24} />
@@ -104,7 +104,7 @@ export default function Home() {
         </div>
 
         <div className="w-full bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-2xl font-semibold mb-4">Memory Game Challenge</h2>
+          <h2 className="text-2xl font-semibold mb-4">I Have a Funny Challenge for You: Memory Game!</h2>
           <p className="text-gray-600 mb-4">
             Test your memory! Click to reveal cards and find matching pairs.
           </p>
