@@ -66,7 +66,7 @@ export default function Home() {
           <Image
             className="rounded-full border-4 border-gray-300 shadow-lg"
             src="/profile.jpeg"
-            alt="Leandro's profile"
+            alt="Leandro&apos;s profile"
             width={180}
             height={180}
             priority
@@ -86,7 +86,7 @@ export default function Home() {
                 <Linkedin size={24} />
               </a>
               <a 
-                href="https://github.com/leandroalveso" 
+                href="https://github.com/your-github-username" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-gray-800 transition-colors"
@@ -94,7 +94,7 @@ export default function Home() {
                 <Github size={24} />
               </a>
               <a 
-                href="mailto:engleandroalveso@gmail.com"
+                href="mailto:your-email@example.com"
                 className="hover:text-red-600 transition-colors"
               >
                 <Mail size={24} />
@@ -104,7 +104,7 @@ export default function Home() {
         </div>
 
         <div className="w-full bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-2xl font-semibold mb-4">I Have a Funny Challenge for You!</h2>
+          <h2 className="text-2xl font-semibold mb-4">Memory Game Challenge</h2>
           <p className="text-gray-600 mb-4">
             Test your memory! Click to reveal cards and find matching pairs.
           </p>
@@ -138,7 +138,7 @@ export default function Home() {
         <div className="w-full bg-white shadow-md rounded-lg p-6">
           <h2 className="text-2xl font-semibold mb-4">About Me</h2>
           <p className="text-gray-600">
-            I'm a passionate software developer with a keen interest in creating 
+            I&apos;m a passionate software developer with a keen interest in creating 
             innovative solutions. Currently exploring the intersections of 
             technology and creativity, I enjoy building web applications 
             that are both functional and user-friendly.
@@ -147,7 +147,7 @@ export default function Home() {
       </main>
 
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-gray-600">
-        <p>© 2025 Leandro Alves. All rights reserved.</p>
+        <p>&copy; 2024 Leandro Alves. All rights reserved.</p>
       </footer>
     </div>
   );
