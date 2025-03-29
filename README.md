@@ -1,6 +1,6 @@
 # PERSONAL WEBSITE
 
-My personal website is [here](https://engleandro.github.io/).
+My personal web page is [here](https://leandroalveso.github.io//).
 
 ## Getting Started
 
@@ -65,4 +65,4 @@ npm install
 
 ## Copyrights
 
-© 2024 Copyrights Leandro Alves as Mímir Company. ®All Rights Reserved.
+© 2025 Copyrights Leandro Alves as Mímir Company. ®All Rights Reserved.
