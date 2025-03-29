@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Leandro Alves Personal Webpage",
-  description: "It is a personal webpage onwered by Leandro Alves",
+  title: "Leandro Alves Personal Website",
+  description: "It is a personal website onwered by Leandro Alves",
 };
 
 export default function RootLayout({

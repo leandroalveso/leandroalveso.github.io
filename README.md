@@ -1,6 +1,6 @@
-# PERSONAL WEB PAGE
+# PERSONAL WEBSITE
 
-My personal web page is [here](https://engleandro.github.io/).
+My personal website is [here](https://engleandro.github.io/).
 
 ## Getting Started
 
