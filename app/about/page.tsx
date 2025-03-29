@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { House, User, Briefcase, Calendar, MapPin, Code, Database, Cloud, Server, ChevronRight } from "lucide-react";
+import { House, Briefcase, Calendar, MapPin, Code, Database, Cloud, Server, ChevronRight } from "lucide-react";
 
 export default function Home() {
   // Professional journey/work experience data

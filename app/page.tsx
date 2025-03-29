@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { Github, Linkedin, Mail, Menu, X, FileText, Home, User, Newspaper, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, X, Home, User, Newspaper, MessageSquare } from "lucide-react";
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
