@@ -130,22 +130,22 @@ export default function HomePage() {
 
   // Featured projects
   const featuredProjects = [
-    // {
-    //   title: "Cloud Data Platform",
-    //   description: "Designed and implemented a scalable data platform using AWS services, reducing data processing time by 70%.",
-    //   tags: ["AWS", "Python", "Terraform", "Data Engineering"],
-    // }
+    {
+      title: "Cloud Data Platform",
+      description: "Designed and implemented a scalable data platform using AWS services, reducing data processing time by 70%.",
+      tags: ["AWS", "Python", "Terraform", "Data Engineering"],
+    }
   ];
 
   // Recent blog posts
   const recentPosts = [
-    // {
-    //   title: "Best Practices for Modern Data Engineering",
-    //   excerpt: "Exploring the evolution of data engineering practices and tools in the cloud era.",
-    //   date: "March 15, 2025",
-    //   readTime: "8 min read",
-    //   slug: "best-practices-modern-data-engineering"
-    // }
+    {
+      title: "Best Practices for Modern Data Engineering",
+      excerpt: "Exploring the evolution of data engineering practices and tools in the cloud era.",
+      date: "March 15, 2025",
+      readTime: "8 min read",
+      slug: "best-practices-modern-data-engineering"
+    }
   ];
 
   return (

@@ -7,16 +7,16 @@ import { House, Search, Calendar, Clock, Tag } from "lucide-react";
 export default function BlogPage() {
   // Blog posts data - in a real implementation, this would come from a CMS or API
   const allPosts = [
-    // {
-    //   id: 1,
-    //   title: "Building Scalable Data Pipelines with Apache Airflow",
-    //   slug: "building-scalable-data-pipelines-airflow",
-    //   except: "Learn how to design and implement robust, scalable data pipelines using Apache Airflow and best practices for orchestrating complex workflows.",
-    //   date: "March 15, 2025",
-    //   readTime: "12 min read",
-    //   category: "Data Engineering",
-    //   tags: ["Airflow", "Data Pipelines", "ETL", "Python", "Orchestration"]
-    // }
+    {
+      id: 1,
+      title: "Building Scalable Data Pipelines with Apache Airflow",
+      slug: "building-scalable-data-pipelines-airflow",
+      except: "Learn how to design and implement robust, scalable data pipelines using Apache Airflow and best practices for orchestrating complex workflows.",
+      date: "March 15, 2025",
+      readTime: "12 min read",
+      category: "Data Engineering",
+      tags: ["Airflow", "Data Pipelines", "ETL", "Python", "Orchestration"]
+    }
   ];
 
   // State for filtering and search
