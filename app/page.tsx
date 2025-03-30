@@ -130,22 +130,22 @@ export default function HomePage() {
 
   // Featured projects
   const featuredProjects = [
-    {
-      title: "Cloud Data Platform",
-      description: "Designed and implemented a scalable data platform using AWS services, reducing data processing time by 70%.",
-      tags: ["AWS", "Python", "Terraform", "Data Engineering"],
-    }
+    // {
+    //   title: "Cloud Data Platform",
+    //   description: "Designed and implemented a scalable data platform using AWS services, reducing data processing time by 70%.",
+    //   tags: ["AWS", "Python", "Terraform", "Data Engineering"],
+    // }
   ];
 
   // Recent blog posts
-  const recentPosts = [
-    {
-      title: "Best Practices for Modern Data Engineering",
-      excerpt: "Exploring the evolution of data engineering practices and tools in the cloud era.",
-      date: "March 15, 2025",
-      readTime: "8 min read",
-      slug: "best-practices-modern-data-engineering"
-    }
+  const recentPosts: any[] = [
+    // {
+    //   title: "Best Practices for Modern Data Engineering",
+    //   except: "Exploring the evolution of data engineering practices and tools in the cloud era.",
+    //   date: "March 15, 2025",
+    //   readTime: "8 min read",
+    //   slug: "best-practices-modern-data-engineering"
+    // }
   ];
 
   return (
@@ -330,7 +330,7 @@ export default function HomePage() {
                   <div className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow h-full flex flex-col">
                     <p className="text-sm text-gray-500 mb-2">{post.date} · {post.readTime}</p>
                     <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">{post.title}</h3>
-                    <p className="text-gray-600 mb-4 flex-grow">{post.excerpt}</p>
+                    <p className="text-gray-600 mb-4 flex-grow">{post.except}</p>
                     <span className="text-blue-600 font-medium group-hover:underline">Read more</span>
                   </div>
                 </Link>

@@ -6,17 +6,17 @@ import { House, Search, Calendar, Clock, Tag } from "lucide-react";
 
 export default function BlogPage() {
   // Blog posts data - in a real implementation, this would come from a CMS or API
-  const allPosts = [
-    {
-      id: 1,
-      title: "Building Scalable Data Pipelines with Apache Airflow",
-      slug: "building-scalable-data-pipelines-airflow",
-      except: "Learn how to design and implement robust, scalable data pipelines using Apache Airflow and best practices for orchestrating complex workflows.",
-      date: "March 15, 2025",
-      readTime: "12 min read",
-      category: "Data Engineering",
-      tags: ["Airflow", "Data Pipelines", "ETL", "Python", "Orchestration"]
-    }
+  const allPosts: any[] = [
+    // {
+    //   id: 1,
+    //   title: "Building Scalable Data Pipelines with Apache Airflow",
+    //   slug: "building-scalable-data-pipelines-airflow",
+    //   except: "Learn how to design and implement robust, scalable data pipelines using Apache Airflow and best practices for orchestrating complex workflows.",
+    //   date: "March 15, 2025",
+    //   readTime: "12 min read",
+    //   category: "Data Engineering",
+    //   tags: ["Airflow", "Data Pipelines", "ETL", "Python", "Orchestration"]
+    // }
   ];
 
   // State for filtering and search
@@ -31,7 +31,7 @@ export default function BlogPage() {
   // Filter posts based on search term, category, and tag
   const filteredPosts = allPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+                          post.except.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "" || post.category === selectedCategory;
     const matchesTag = selectedTag === "" || post.tags.includes(selectedTag);
     
@@ -134,8 +134,8 @@ export default function BlogPage() {
                           {post.title}
                         </Link>
                       </h2>
-                      <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <p className="text-gray-600 mb-4">{post.except}</p>
+                      {/* <div className="flex flex-wrap gap-2 mb-4">
                         {post.tags.map(tag => (
                           <span 
                             key={tag} 
@@ -146,7 +146,7 @@ export default function BlogPage() {
                             {tag}
                           </span>
                         ))}
-                      </div>
+                      </div> */}
                     </div>
                     <div className="px-6 py-4 border-t border-gray-100 text-sm text-gray-500 flex justify-between items-center">
                       <div className="flex items-center">

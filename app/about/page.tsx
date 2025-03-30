@@ -133,7 +133,7 @@ export default function Home() {
               
               <div className="md:w-1/3">
                 <div className="relative">
-                  <div className="absolute -inset-2 bg-white/20 rounded-full blur-md"></div>
+                  {/* <div className="absolute -inset-2 bg-white/20 rounded-full blur-md"></div> */}
                   <Image
                     src="/profile.jpeg"
                     alt="Leandro Alves"
