@@ -6,17 +6,18 @@ import { House, Search, Calendar, Clock, Tag } from "lucide-react";
 
 export default function BlogPage() {
   // Blog posts data - in a real implementation, this would come from a CMS or API
-  const allPosts: any[] = [
-    // {
-    //   id: 1,
-    //   title: "Building Scalable Data Pipelines with Apache Airflow",
-    //   slug: "building-scalable-data-pipelines-airflow",
-    //   except: "Learn how to design and implement robust, scalable data pipelines using Apache Airflow and best practices for orchestrating complex workflows.",
-    //   date: "March 15, 2025",
-    //   readTime: "12 min read",
-    //   category: "Data Engineering",
-    //   tags: ["Airflow", "Data Pipelines", "ETL", "Python", "Orchestration"]
-    // }
+  const allPosts = [
+    {
+      id: 1,
+      title: "UV: The Modern Python Package and Dependency Manager",
+      slug: "uv-modern-python-package-dependency-manager",
+      except: "Explore UV, the lightning-fast Python package manager written in Rust that's revolutionizing dependency management with speeds up to 100x faster than traditional tools.",
+      date: "April 9, 2025",
+      readTime: "8 min read",
+      category: "Python",
+      tags: ["Python", "Package Management", "Dependencies", "Tools"]
+    }
+    // Add more blog posts here as you create them
   ];
 
   // State for filtering and search
@@ -55,7 +56,6 @@ export default function BlogPage() {
             <div className="flex flex-wrap gap-4 justify-center items-center md:justify-start">
               <a 
                 href="/" 
-                target="_blank"
                 className="bg-white text-blue-700 hover:bg-blue-50 py-2 px-6 rounded-lg font-medium flex items-center gap-2 transition-colors"
               >
                 <House size={18} />
@@ -135,7 +135,7 @@ export default function BlogPage() {
                         </Link>
                       </h2>
                       <p className="text-gray-600 mb-4">{post.except}</p>
-                      {/* <div className="flex flex-wrap gap-2 mb-4">
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {post.tags.map(tag => (
                           <span 
                             key={tag} 
@@ -146,7 +146,7 @@ export default function BlogPage() {
                             {tag}
                           </span>
                         ))}
-                      </div> */}
+                      </div>
                     </div>
                     <div className="px-6 py-4 border-t border-gray-100 text-sm text-gray-500 flex justify-between items-center">
                       <div className="flex items-center">
@@ -179,33 +179,6 @@ export default function BlogPage() {
             )}
           </div>
         </section>
-
-        {/* Newsletter Signup */}
-        {/* <section className="py-16 bg-gradient-to-r from-indigo-600 to-blue-700 text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Subscribe to My Newsletter</h2>
-            <p className="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
-              Get the latest articles, tutorials, and insights on data engineering, cloud architecture, and more delivered to your inbox.
-            </p>
-            <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-grow px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-blue-800 hover:bg-blue-900 px-6 py-3 rounded-lg font-medium transition-colors whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="text-sm mt-4 opacity-80">
-              No spam, unsubscribe at any time. Your email address will be kept private.
-            </p>
-          </div>
-        </section> */}
         
       </main>
 

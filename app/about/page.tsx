@@ -86,10 +86,11 @@ export default function Home() {
       items: [
         "Data Lake/Warehouse/Lakehouse", 
         "SQL & NoSQL Databases", 
-        "PostgreSQL, MS SQL Server, Redis, Cassandra, MongoDB, Elasticsearch",
-        "Airbyte, Airflow, Kafka, MinIO",
-        "Hadoop, Hive, Spark, Flink",
-        "dbt, PowerBI"
+        "PostgreSQL, MS SQL Server",
+        "Redis, Apache Cassandra, MongoDB, Elasticsearch, MinIO",
+        "Airbyte, Apache Airflow, Apache Kafka",
+        "Apache Hadoop, Apache Hive, Apache Spark, Flink, Databricks",
+        "dbt"
       ]
     },
     {
@@ -99,17 +100,18 @@ export default function Home() {
         "GitLab/GitHub", 
         "Bash/Powershell", 
         "Docker, Kubernetes", 
-        "CI/CD Pipelines",
-        "Infrastructure as Code (Terraform/OpenTofu)"
+        "CI/CD Pipelines (Gitlab CI, GitHub Actions, Azure DevOps)",
+        "Infrastructure as Code (Terraform/OpenTofu, Terragrunt)"
       ]
     },
     {
       category: "Programming Languages & Frameworks",
       icon: <Code size={24} className="text-blue-600" />,
       items: [
-        "Python (Django/FastAPI, Pandas/Polars, Tensorflow)", 
+        "Python (Django/FastAPI, Pyarrow/Pandas/Polars, Scikit-Learn/Tensorflow)", 
         "SQL", 
-        "TypeScript (Node.js, Fastify, Next.js/React, TailwindCSS)", 
+        "TypeScript (Node.js, Fastify.js, Next.js/React.js)",
+        "CSS (TailwindCSS)", 
         "C# (.NET)",
         "Rust"
       ]
@@ -152,7 +154,6 @@ export default function Home() {
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   <a 
                     href="/" 
-                    target="_blank"
                     className="bg-white text-blue-700 hover:bg-blue-50 py-2 px-6 rounded-lg font-medium flex items-center gap-2 transition-colors"
                   >
                     <House size={18} />

@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { Github, Linkedin, Mail, Menu, X, Home, User, Newspaper, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, Menu, X, Home, User, Newspaper, MessageSquare, TrendingUp} from "lucide-react";
+
+import FinancialDashboard from '../components/FinancialDashboard';
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -87,8 +89,7 @@ export default function HomePage() {
         "Amazon Web Service (AWS)", 
         "Google Cloud Platform (GCP)",
         "Microsoft Azure", 
-        "OpenTofu",
-        "Terraform",
+        "OpenTofu/Terraform & Terragrunt",
       ] 
     },
     { 
@@ -98,14 +99,12 @@ export default function HomePage() {
         "C#",
         "HCL",
         "Python",
-        "Django",
-        "Fastapi",
-        "Scikit-Learn",
-        "Tensorflow",
+        "Django & Fastapi",
+        "Scikit-Learn & Tensorflow",
         "TypeScript", 
         "Node.js", 
-        "React.js",
-        "Next.js",
+        "React.js & Next.js",
+        "Tailwind CSS",
         "SQL",
       ] 
     },
@@ -146,6 +145,16 @@ export default function HomePage() {
     //   readTime: "8 min read",
     //   slug: "best-practices-modern-data-engineering"
     // }
+    {
+        id: 1,
+        title: "UV: The Modern Python Package and Dependency Manager",
+        slug: "uv-modern-python-package-dependency-manager",
+        except: "Explore UV, the lightning-fast Python package manager written in Rust that's revolutionizing dependency management with speeds up to 100x faster than traditional tools.",
+        date: "April 9, 2025",
+        readTime: "8 min read",
+        category: "Python",
+        tags: ["Python", "Package Management", "Dependencies", "Tools"]
+    }
   ];
 
   return (
@@ -205,10 +214,15 @@ export default function HomePage() {
                 <Newspaper size={18} />
                 <span>Blog</span>
               </Link>
-              <Link href="/contact" className="flex items-center space-x-2 text-gray-800 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
+              {/* <Link href="/contact" className="flex items-center space-x-2 text-gray-800 hover:text-blue-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 <MessageSquare size={18} />
                 <span>Contact</span>
-              </Link>
+              </Link> */}
+
+              {/* <Link href="/finance" className="flex items-center space-x-2 text-gray-800 hover:text-blue-600 transition-colors">
+                  <TrendingUp size={18} />
+                  <span>Watchlist</span>
+              </Link> */}
             </div>
           </nav>
         )}
