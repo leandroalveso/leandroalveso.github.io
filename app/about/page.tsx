@@ -90,7 +90,7 @@ export default function Home() {
         "Redis, Apache Cassandra, MongoDB, Elasticsearch, MinIO",
         "Airbyte, Apache Airflow, Apache Kafka",
         "Apache Hadoop, Apache Hive, Apache Spark, Flink, Databricks",
-        "dbt"
+        "dbt & Astronomer-Cosmos with Snowflake, Google Big Query, AWS Athena, AWS Redshift",
       ]
     },
     {

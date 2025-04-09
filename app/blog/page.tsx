@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { House, Search, Calendar, Clock, Tag } from "lucide-react";
 
+
 export default function BlogPage() {
-  // Blog posts data - in a real implementation, this would come from a CMS or API
   const allPosts = [
     {
       id: 1,
@@ -17,7 +17,6 @@ export default function BlogPage() {
       category: "Python",
       tags: ["Python", "Package Management", "Dependencies", "Tools"]
     }
-    // Add more blog posts here as you create them
   ];
 
   // State for filtering and search

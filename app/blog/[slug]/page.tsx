@@ -1,9 +1,14 @@
 "use client";
 
+// import { Metadata } from "next";
+// import { PageProps }  from "next";
 import { ArrowLeft, Calendar, Clock, User, Tag } from "lucide-react";
 import Link from "next/link";
 
-export default function BlogPostPage({ params }) {
+
+type tParams = Promise<{ slug: string[] }>;
+
+export default function BlogPostPage(props: { params: tParams }) {
   // In a real implementation, you would fetch the blog post based on the slug
   // For now, we'll hardcode the UV blog post
   const post = {
@@ -215,7 +220,7 @@ For teams frustrated with slow CI/CD pipelines or complex dependency issues, UV 
 
   // Function to render markdown content (simplified)
   // In a real implementation, you would use a markdown library like react-markdown
-  const renderMarkdown = (markdown) => {
+  const renderMarkdown = (markdown: string) => {
     return (
       <div className="prose prose-blue lg:prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: convertMarkdownToHTML(markdown) }}
@@ -225,7 +230,7 @@ For teams frustrated with slow CI/CD pipelines or complex dependency issues, UV 
 
   // Simple markdown to HTML converter (very basic implementation)
   // In a real project, use a proper markdown library
-  const convertMarkdownToHTML = (markdown) => {
+  const convertMarkdownToHTML = (markdown: string) => {
     let html = markdown
       // Headers
       .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4">$1</h1>')

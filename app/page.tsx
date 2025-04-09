@@ -5,7 +5,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { Github, Linkedin, Mail, Menu, X, Home, User, Newspaper, MessageSquare, TrendingUp} from "lucide-react";
 
-import FinancialDashboard from '../components/FinancialDashboard';
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,13 +73,16 @@ export default function HomePage() {
         "Data Lakehouse",
         "Modern Data-Stack",
         "SQL",
+        "MinIO",
         "Airbyte",
         "Apache Airflow", 
         "Apache Kafka",
-        "Apache Spark", 
+        "Apache Hadoop",
+        "Apache Hive",
+        "Apache Spark",
+        "Apache Flink",
         "Databricks", 
         "dbt (Data Build Tool)",
-        "MinIO",
       ] 
     },
     { 
@@ -115,7 +117,7 @@ export default function HomePage() {
         "Powershell",
         "Git", 
         "GitHub Actions",
-        "Gitlab",
+        "Gitlab CI/CD",
         "Continous Integration (CI)", 
         "Continous Deployment (CD)",
         "Docker",
@@ -138,13 +140,6 @@ export default function HomePage() {
 
   // Recent blog posts
   const recentPosts: any[] = [
-    // {
-    //   title: "Best Practices for Modern Data Engineering",
-    //   except: "Exploring the evolution of data engineering practices and tools in the cloud era.",
-    //   date: "March 15, 2025",
-    //   readTime: "8 min read",
-    //   slug: "best-practices-modern-data-engineering"
-    // }
     {
         id: 1,
         title: "UV: The Modern Python Package and Dependency Manager",
