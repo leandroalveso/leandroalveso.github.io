@@ -1,8 +1,6 @@
 "use client";
 
-// import { Metadata } from "next";
-// import { PageProps }  from "next";
-import { ArrowLeft, Calendar, Clock, User, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Link from "next/link";
 
 
