@@ -1,7 +1,17 @@
-"use client";
-
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Link from "next/link";
+
+
+export async function generateStaticParams() {
+  // Replace this with actual logic — example using hardcoded slugs
+  const slugs = [
+    'uv-modern-python-package-dependency-manager', 
+  ];
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
 
 
 type tParams = Promise<{ slug: string[] }>;
