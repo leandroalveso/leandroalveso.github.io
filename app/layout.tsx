@@ -1,64 +1,41 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
-// Font configurations
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+const inter = Inter({ subsets: ['latin'] })
+
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://leandroalveso.github.io'), // Replace with your actual GitHub Pages URL
+  // Add metadataBase to fix the warning
+  metadataBase: new URL('https://leandroalveso.github.io'),
   title: {
-    default: "Leandro Alves | Data/Cloud/Software Engineer",
-    template: "%s | Leandro Alves"
+    default: 'Leandro Alves - Data & Machine Learning Engineer',
+    template: '%s | Leandro Alves'
   },
-  description: "Personal website of Leandro Alves, an experienced data/software/cloud engineer.",
+  description: 'Experienced Data/Machine Learning/Software Engineer specializing in cloud-based data platforms, AWS, Azure, GCP. Transforming data into valuable assets and actionable insights.',
   keywords: [
-    "software", 
-    "data", 
-    "cloud", 
-    "engineering",
-    "data engineering",
-    "cloud engineering",
-    "SQL",
-    "Python",
-    "C#",
-    "Apache Spark",
-    "Node.js",
-    "TypeScript",
-    "React", 
-    "Next.js",
-    "Tailwind CSS"
+    'Data Engineer',
+    'Machine Learning Engineer',
+    'Software Engineer',
+    'AWS',
+    'Azure',
+    'GCP',
+    'Python',
+    'TypeScript',
+    'Data Analytics',
+    'Cloud Computing',
+    'Leandro Alves',
+    'Brazil',
+    'Australia',
+    'Sydney'
   ],
-  authors: [{ name: "Leandro Alves" }],
-  creator: "Leandro Alves",
-  publisher: "Leandro Alves",
-  openGraph: {
-    title: "Leandro Alves - Data/Cloud/Software Engineer",
-    description: "Personal website of Leandro Alves, an experienced data/software/cloud engineer.",
-    url: 'https://leandroalveso.github.io',
-    siteName: "Leandro Alves Portfolio",
-    images: [
-      {
-        url: '/profile.jpeg',
-        width: 800,
-        height: 600,
-      }
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
+  authors: [{ name: 'Leandro Alves', url: 'https://leandroalveso.github.io' }],
+  creator: 'Leandro Alves',
+  publisher: 'Leandro Alves',
   robots: {
     index: true,
     follow: true,
@@ -70,46 +47,92 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-site-verification-code',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://leandroalveso.github.io',
+    title: 'Leandro Alves - Data & Machine Learning Engineer',
+    description: 'Experienced Data/Machine Learning/Software Engineer specializing in cloud-based data platforms',
+    siteName: 'Leandro Alves Portfolio',
+    images: [
+      {
+        url: '/og-image.jpg', // This will now resolve correctly with metadataBase
+        width: 1200,
+        height: 630,
+        alt: 'Leandro Alves - Data & Machine Learning Engineer',
+      },
+    ],
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Leandro Alves - Data & Machine Learning Engineer',
+    description: 'Experienced Data/Machine Learning/Software Engineer specializing in cloud-based data platforms',
+    images: ['/twitter-image.jpg'], // This will now resolve correctly with metadataBase
+  },
+  verification: {
+    google: 'google-site-verification-code',
+  },
+  alternates: {
+    canonical: 'https://leandroalveso.github.io',
+  },
+}
 
-export default function RootLayoutClient({
+export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html 
-      lang="en" 
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`}
-    >
+    <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preconnect to improve performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Additional meta tags */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <meta name="theme-color" content="#ffffff" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#3b82f6" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Leandro Alves",
+              "jobTitle": "Data & Machine Learning Engineer",
+              "description": "Experienced Data/Machine Learning/Software Engineer specializing in cloud-based data platforms",
+              "url": "https://leandroalveso.github.io",
+              "sameAs": [
+                "https://www.linkedin.com/in/leandroalveso",
+                "https://github.com/leandroalveso"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Sydney",
+                "addressRegion": "NSW",
+                "addressCountry": "Australia"
+              },
+              "email": "engleandroalveso@gmail.com",
+              "telephone": "+61 0433 514 560"
+            })
+          }}
+        />
       </head>
-      <body 
-        className={`
-          antialiased 
-          bg-gradient-to-br 
-          from-gray-100 
-          to-gray-200 
-          min-h-screen 
-          text-gray-900
-        `}
-      >
-        {/* Main content */}
-        {children}
-        {/* Vercel Analytics and Speed Insights */}
-        <Analytics />
-        <SpeedInsights />
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
