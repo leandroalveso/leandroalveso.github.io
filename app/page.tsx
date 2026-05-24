@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <div className="relative overflow-hidden">
-        {/* <AnimatedBlob /> */}
+        <AnimatedBlob />
         <Hero />
       </div>
       <About />
