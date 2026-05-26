@@ -97,7 +97,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
         >
           <Link
-            href="#contact"
+            href="/#contact"
             className="group inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-indigo-600/25 hover:scale-105"
           >
             <Mail className="w-5 h-5" />
@@ -105,7 +105,7 @@ export default function Hero() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link
-            href="#experience"
+            href="/#experience"
             className="inline-flex items-center gap-2 px-8 py-4 border border-gray-200 dark:border-slate-600 hover:border-indigo-400 text-gray-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-300 font-semibold rounded-xl transition-all duration-300 bg-white dark:bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-500/5"
           >
             View Experience

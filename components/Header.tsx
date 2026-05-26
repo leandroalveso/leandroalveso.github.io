@@ -7,11 +7,11 @@ import { useTheme } from 'next-themes'
 import Link from 'next/link'
 
 const navigation = [
-  { name: 'Home', href: '#home', icon: Home },
-  { name: 'About', href: '#about', icon: User },
-  { name: 'Experience', href: '#experience', icon: Briefcase },
-  { name: 'Skills', href: '#skills', icon: Code2 },
-  { name: 'Contact', href: '#contact', icon: Mail },
+  { name: 'Home', href: '/#home', icon: Home },
+  { name: 'About', href: '/#about', icon: User },
+  { name: 'Experience', href: '/#experience', icon: Briefcase },
+  { name: 'Skills', href: '/#skills', icon: Code2 },
+  { name: 'Contact', href: '/#contact', icon: Mail },
   { name: 'Blog', href: '/blog', icon: PenLine },
 ]
 
