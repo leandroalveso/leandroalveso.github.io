@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon, Home, User, Briefcase, Mail, Code2 } from 'lucide-react'
+import { Menu, X, Sun, Moon, Home, User, Briefcase, Mail, Code2, PenLine } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 
@@ -12,6 +12,7 @@ const navigation = [
   { name: 'Experience', href: '#experience', icon: Briefcase },
   { name: 'Skills', href: '#skills', icon: Code2 },
   { name: 'Contact', href: '#contact', icon: Mail },
+  { name: 'Blog', href: '/blog', icon: PenLine },
 ]
 
 export default function Header() {

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Linkedin, Github, Heart, Phone } from 'lucide-react'
+import { Mail, MapPin, Linkedin, Github, Heart } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Footer() {
@@ -13,6 +13,7 @@ export default function Footer() {
     { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Blog', href: '/blog' },
   ]
 
   return (
@@ -81,13 +82,6 @@ export default function Footer() {
                 >
                   <Mail className="w-4 h-4 text-indigo-500 flex-shrink-0" />
                   engleandroalveso@gmail.com
-                </a>
-                <a
-                  href="tel:+61433514560"
-                  className="flex items-center gap-3 text-gray-500 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 text-sm transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-indigo-500 flex-shrink-0" />
-                  +61 0433 514 560
                 </a>
                 <div className="flex items-center gap-3 text-gray-500 dark:text-slate-500 text-sm">
                   <MapPin className="w-4 h-4 text-indigo-500 flex-shrink-0" />

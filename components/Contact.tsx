@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, MapPin, Linkedin, Github, Send, CheckCircle, Phone } from 'lucide-react'
+import { Mail, MapPin, Linkedin, Github, Send, CheckCircle } from 'lucide-react'
 import { useForm, ValidationError } from '@formspree/react'
 import { useState } from 'react'
 
@@ -102,12 +102,6 @@ export default function Contact() {
                     label: 'Email',
                     value: 'engleandroalveso@gmail.com',
                     href: 'mailto:engleandroalveso@gmail.com',
-                  },
-                  {
-                    icon: Phone,
-                    label: 'Phone',
-                    value: '+61 0433 514 560',
-                    href: 'tel:+61433514560',
                   },
                   {
                     icon: MapPin,

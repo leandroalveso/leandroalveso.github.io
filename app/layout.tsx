@@ -99,7 +99,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 addressCountry: 'Australia',
               },
               email: 'engleandroalveso@gmail.com',
-              telephone: '+61 0433 514 560',
             }),
           }}
         />

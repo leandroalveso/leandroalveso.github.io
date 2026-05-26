@@ -53,13 +53,22 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+.dark ::-webkit-scrollbar-track {
   background: #0a0f1e;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2d4a;
+  background: #94a3b8;
   border-radius: 3px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e2d4a;
+}
 ::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #3730a3;
 }
 
@@ -67,4 +76,216 @@ body {
 ::selection {
   background: rgba(99, 102, 241, 0.3);
   color: #fff;
+}
+
+/* ─── Mermaid Diagram Styles ─────────────────────────────────── */
+
+.mermaid-wrapper {
+  @apply my-6 rounded-lg border border-gray-300 bg-white/80 overflow-hidden;
+}
+.dark .mermaid-wrapper {
+  @apply border-gray-700 bg-gray-900/50;
+}
+
+.mermaid-wrapper.fullscreen {
+  @apply fixed inset-0 z-50 m-0 rounded-none border-0 bg-white flex flex-col;
+}
+.dark .mermaid-wrapper.fullscreen {
+  @apply bg-gray-950;
+}
+
+.mermaid-wrapper.fullscreen .mermaid-scroll-container {
+  @apply flex-1;
+}
+
+.zoom-controls-toolbar {
+  @apply flex items-center gap-2 px-4 py-2 bg-gray-100 border-b border-gray-300;
+}
+.dark .zoom-controls-toolbar {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.zoom-btn {
+  @apply flex items-center justify-center w-8 h-8 rounded text-gray-500 hover:bg-gray-200 hover:text-gray-800 transition-colors disabled:opacity-30 disabled:cursor-not-allowed;
+}
+.dark .zoom-btn {
+  @apply text-gray-300 hover:bg-gray-700 hover:text-white;
+}
+
+.zoom-level {
+  @apply text-sm text-gray-500 font-mono min-w-[3rem] text-center;
+}
+.dark .zoom-level {
+  @apply text-gray-400;
+}
+
+.zoom-divider {
+  @apply w-px h-5 bg-gray-300 mx-1;
+}
+.dark .zoom-divider {
+  @apply bg-gray-700;
+}
+
+.mermaid-scroll-container {
+  @apply overflow-auto p-4 flex items-start justify-center;
+}
+
+.mermaid-content {
+  @apply inline-block;
+}
+
+.mermaid-content svg {
+  @apply max-w-none;
+}
+
+.zoom-hint {
+  @apply text-xs text-gray-400 text-center pb-2;
+}
+.dark .zoom-hint {
+  @apply text-gray-500;
+}
+
+.mermaid-error-container {
+  @apply my-6 p-4 rounded-lg border border-red-400 bg-red-50;
+}
+.dark .mermaid-error-container {
+  @apply border-red-700 bg-red-900/20;
+}
+
+/* ─── Callout / Alert Box Styles ─────────────────────────────── */
+
+.callout {
+  @apply my-6 rounded-lg border p-4;
+}
+
+.callout-header {
+  @apply flex items-center gap-2 mb-2;
+}
+
+.callout-icon {
+  @apply text-lg;
+}
+
+.callout-label {
+  @apply font-semibold text-sm;
+}
+
+.callout-body {
+  @apply text-sm leading-relaxed;
+}
+
+.callout-body > :first-child {
+  @apply mt-0;
+}
+
+.callout-body > :last-child {
+  @apply mb-0;
+}
+
+.callout-note {
+  @apply border-blue-400 bg-blue-50;
+}
+.dark .callout-note {
+  @apply border-blue-700 bg-blue-950/30;
+}
+.callout-note .callout-label {
+  @apply text-blue-700;
+}
+.dark .callout-note .callout-label {
+  @apply text-blue-300;
+}
+
+.callout-warning {
+  @apply border-yellow-400 bg-yellow-50;
+}
+.dark .callout-warning {
+  @apply border-yellow-700 bg-yellow-950/30;
+}
+.callout-warning .callout-label {
+  @apply text-yellow-700;
+}
+.dark .callout-warning .callout-label {
+  @apply text-yellow-300;
+}
+
+.callout-danger {
+  @apply border-red-400 bg-red-50;
+}
+.dark .callout-danger {
+  @apply border-red-700 bg-red-950/30;
+}
+.callout-danger .callout-label {
+  @apply text-red-700;
+}
+.dark .callout-danger .callout-label {
+  @apply text-red-300;
+}
+
+.callout-success {
+  @apply border-green-400 bg-green-50;
+}
+.dark .callout-success {
+  @apply border-green-700 bg-green-950/30;
+}
+.callout-success .callout-label {
+  @apply text-green-700;
+}
+.dark .callout-success .callout-label {
+  @apply text-green-300;
+}
+
+.callout-tip {
+  @apply border-emerald-400 bg-emerald-50;
+}
+.dark .callout-tip {
+  @apply border-emerald-700 bg-emerald-950/30;
+}
+.callout-tip .callout-label {
+  @apply text-emerald-700;
+}
+.dark .callout-tip .callout-label {
+  @apply text-emerald-300;
+}
+
+.callout-important {
+  @apply border-indigo-400 bg-indigo-50;
+}
+.dark .callout-important {
+  @apply border-indigo-700 bg-indigo-950/30;
+}
+.callout-important .callout-label {
+  @apply text-indigo-700;
+}
+.dark .callout-important .callout-label {
+  @apply text-indigo-300;
+}
+
+/* ─── Text utilities used by MarkdownRenderer ────────────────── */
+
+.text-foreground {
+  @apply text-gray-900 dark:text-white;
+}
+
+.text-foreground\/90 {
+  @apply text-gray-800/90 dark:text-gray-200/90;
+}
+
+.bg-muted {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.text-muted-foreground {
+  @apply text-gray-500 dark:text-slate-400;
+}
+
+.border-border {
+  @apply border-gray-200 dark:border-slate-800;
+}
+
+.text-primary {
+  @apply text-indigo-600 dark:text-indigo-400;
+}
+
+.border-primary {
+  @apply border-indigo-500;
 }
