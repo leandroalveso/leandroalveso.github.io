@@ -18,6 +18,10 @@ export type Post = PostMeta & {
   content: string
 }
 
+export type PostWithContent = PostMeta & {
+  content: string
+}
+
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
 export function getAllPosts(): PostMeta[] {
@@ -51,6 +55,25 @@ export function getPostBySlug(slug: string): Post | null {
   } catch {
     return null
   }
+}
+
+export function getAllPostsWithContent(): PostWithContent[] {
+  const fileNames = fs.readdirSync(postsDirectory)
+  const posts = fileNames
+    .filter((fn) => fn.endsWith('.md'))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.md$/, '')
+      const fullPath = path.join(postsDirectory, fileName)
+      const fileContents = fs.readFileSync(fullPath, 'utf8')
+      const { data, content } = matter(fileContents)
+      return {
+        slug,
+        frontmatter: data as PostFrontmatter,
+        content,
+      }
+    })
+    .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
+  return posts
 }
 
 export function getAllSlugs(): string[] {

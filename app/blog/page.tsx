@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
-import BlogCard from '@/components/BlogCard'
-import { getAllPosts } from '@/lib/posts'
+import SearchBar from '@/components/SearchBar'
+import { getAllPostsWithContent } from '@/lib/posts'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPage() {
-  const posts = getAllPosts()
+  const posts = getAllPostsWithContent()
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#050810]">
@@ -34,18 +34,14 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Posts Grid */}
+      {/* Search + Posts Grid */}
       <section className="container mx-auto px-6 pb-24">
         {posts.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-gray-400 dark:text-slate-500 text-lg">No posts yet. Coming soon.</p>
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {posts.map((post, index) => (
-              <BlogCard key={post.slug} slug={post.slug} frontmatter={post.frontmatter} index={index} />
-            ))}
-          </div>
+          <SearchBar posts={posts} />
         )}
       </section>
     </div>
