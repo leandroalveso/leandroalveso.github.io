@@ -52,7 +52,7 @@ export default function SearchBar({ posts }: { posts: PostWithContent[] }) {
       {query && (
         <p className="text-sm text-gray-500 dark:text-slate-400 text-center mb-6">
           {results.length} {results.length === 1 ? 'result' : 'results'} found
-          {results.length === 0 && ' — try a different search term'}
+          {results.length === 0 && '. Try a different search term'}
         </p>
       )}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

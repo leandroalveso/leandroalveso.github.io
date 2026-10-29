@@ -50,7 +50,7 @@ const skillCategories = [
     borderColor: 'border-orange-500/20',
     skills: [
       { name: 'Infrastructure as Code (IaC)', level: 93 },
-      { name: 'CI/CD — GitLab / GitHub Actions', level: 91 },
+      { name: 'CI/CD (GitLab / GitHub Actions)', level: 91 },
       { name: 'Linux & Bash Scripting', level: 88 },
       { name: 'FinOps & Cost Optimisation', level: 85 },
       { name: 'Monitoring & Observability', level: 82 },
@@ -128,7 +128,7 @@ export default function Skills() {
               Technical <span className="text-indigo-600 dark:text-indigo-400">Skills</span>
             </h2>
             <p className="text-gray-500 dark:text-slate-400 max-w-2xl text-lg">
-              Full-stack expertise across the entire data and software engineering lifecycle —
+              Full-stack expertise across the entire data and software engineering lifecycle,
               from cloud infrastructure to ML deployment.
             </p>
           </motion.div>

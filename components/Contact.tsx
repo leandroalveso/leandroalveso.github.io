@@ -91,7 +91,7 @@ export default function Contact() {
                 I'm always open to discussing new opportunities, innovative projects,
                 and ways to leverage data and cloud technology for real business impact.
                 Whether you need consulting, are exploring a collaboration, or just want
-                to connect — I'd love to hear from you.
+                to connect, I'd love to hear from you.
               </p>
 
               {/* Contact details */}

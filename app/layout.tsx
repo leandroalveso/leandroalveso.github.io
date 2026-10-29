@@ -14,7 +14,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://leandroalveso.github.io'),
   title: {
-    default: 'Leandro Alves — Data & Machine Learning Engineer',
+    default: 'Leandro Alves | Data & Machine Learning Engineer',
     template: '%s | Leandro Alves',
   },
   description:
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AU',
     url: 'https://leandroalveso.github.io',
-    title: 'Leandro Alves — Data & Machine Learning Engineer',
+    title: 'Leandro Alves | Data & Machine Learning Engineer',
     description:
       'Data, Analytics, ML & Software Engineer with 9+ years of experience building cloud-native data platforms.',
     siteName: 'Leandro Alves Portfolio',
@@ -58,8 +58,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Leandro Alves — Data & Machine Learning Engineer',
-    description: 'Data, Analytics, ML & Software Engineer — Sydney, Australia',
+    title: 'Leandro Alves | Data & Machine Learning Engineer',
+    description:
+      'Data, Analytics, ML & Software Engineer, Sydney, Australia',
     images: ['/twitter-image.jpg'],
   },
   alternates: { canonical: 'https://leandroalveso.github.io' },
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               sameAs: [
                 'https://www.linkedin.com/in/leandroalveso',
                 'https://github.com/leandroalveso',
+                'https://nuniversity.github.io/en',
               ],
               address: {
                 '@type': 'PostalAddress',

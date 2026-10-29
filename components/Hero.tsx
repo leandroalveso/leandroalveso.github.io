@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronDown, Github, Linkedin, Mail, MapPin, ArrowRight } from 'lucide-react'
+import { ChevronDown, Github, Linkedin, Mail, MapPin, ArrowRight, PenLine } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Hero() {
@@ -109,6 +109,13 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-8 py-4 border border-gray-200 dark:border-slate-600 hover:border-indigo-400 text-gray-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-300 font-semibold rounded-xl transition-all duration-300 bg-white dark:bg-transparent hover:bg-indigo-50 dark:hover:bg-indigo-500/5"
           >
             View Experience
+          </Link>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 px-8 py-4 border border-gray-200 dark:border-slate-600 hover:border-violet-400 dark:hover:border-violet-500/60 text-gray-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-300 font-semibold rounded-xl transition-all duration-300 bg-white dark:bg-transparent hover:bg-violet-50 dark:hover:bg-violet-500/5 hover:scale-105"
+          >
+            <PenLine className="w-5 h-5" />
+            Read the Blog
           </Link>
         </motion.div>
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, MapPin, GraduationCap, Calendar, Globe } from 'lucide-react'
+import { Award, MapPin, GraduationCap, Calendar, Globe, ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 
 const stats = [
@@ -12,16 +12,16 @@ const stats = [
 ]
 
 const highlights = [
-  { color: 'bg-indigo-500', bold: 'Cloud Architecture:', text: 'AWS, Azure, GCP — IaC-first (Terraform/Terragrunt) with FinOps mindset' },
+  { color: 'bg-indigo-500', bold: 'Cloud Architecture:', text: 'AWS, Azure, GCP. IaC-first (Terraform/Terragrunt) with a FinOps mindset' },
   { color: 'bg-violet-500', bold: 'Data & Lakehouse:', text: 'Airflow · Kafka · Airbyte · Spark · Iceberg · dbt · Databricks' },
   { color: 'bg-fuchsia-500', bold: 'ML Engineering:', text: 'TensorFlow · SageMaker · MLflow · Scikit-learn · Feature Engineering' },
   { color: 'bg-emerald-500', bold: 'Full-Stack Dev:', text: 'Python · Django · FastAPI · TypeScript · React · Next.js · TailwindCSS' },
 ]
 
 const education = [
-  { degree: 'MBA — Business Administration', school: 'USP/ESALQ', period: '2024 – 2026' },
-  { degree: 'MBA — Data Science, AI & Analytics', school: 'USP/ESALQ', period: '2022 – 2024' },
-  { degree: 'B.Eng — Mechanical Engineering', school: 'Federal University of Santa Catarina (UFSC)', period: '2011 – 2015' },
+  { degree: 'MBA, Business Administration', school: 'USP/ESALQ', period: '2024 - 2026' },
+  { degree: 'MBA, Data Science, AI & Analytics', school: 'USP/ESALQ', period: '2022 - 2024' },
+  { degree: 'B.Eng, Mechanical Engineering', school: 'Federal University of Santa Catarina (UFSC)', period: '2011 - 2015' },
 ]
 
 const languages = [
@@ -116,7 +116,7 @@ export default function About() {
               <div className="space-y-4 text-gray-600 dark:text-slate-400 leading-relaxed">
                 <p>
                   With 9+ years of experience, I specialise in architecting and delivering
-                  end-to-end cloud data platforms and AI systems that create real business impact —
+                  end-to-end cloud data platforms and AI systems that create real business impact,
                   from ingestion to insight.
                 </p>
                 <p>
@@ -124,12 +124,24 @@ export default function About() {
                   I delivered a forecasting tool that improved order prediction accuracy by{' '}
                   <span className="text-gray-900 dark:text-white font-semibold">80%</span>, and led a 5 TB Azure-to-AWS
                   data migration. I also co-founded{' '}
-                  <span className="text-indigo-600 dark:text-indigo-300 font-medium">Nuniversity</span>, a non-profit
+                  <a
+                    href="https://nuniversity.github.io/en/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-indigo-600 dark:text-indigo-300 font-medium hover:text-indigo-500 dark:hover:text-indigo-200 hover:underline transition-colors"
+                  >
+                    Nuniversity
+                    <ExternalLink className="inline w-3.5 h-3.5 ml-0.5 -mt-0.5" />
+                  </a>
+                  , a non-profit
                   education platform focused on sciences, engineering and technology for underserved communities.
+                  Its target vision, the future version we are building toward: a RAG index of past courses plus a
+                  teacher/researcher AI agent that will compose on-demand courses matched to each learner's
+                  cognitive preferences and dynamics.
                 </p>
                 <p>
-                  I hold two MBAs from <span className="text-gray-900 dark:text-white font-medium">USP/ESALQ</span> — Business Administration
-                  and Data Science, AI & Analytics — giving me the rare ability to translate complex technical
+                  I hold two MBAs from <span className="text-gray-900 dark:text-white font-medium">USP/ESALQ</span>, one in Business Administration
+                  and one in Data Science, AI & Analytics, giving me the rare ability to translate complex technical
                   solutions into business value. My work spans fintech, e-commerce, retail, and consulting
                   across Brazil, the UK, Portugal, and Australia.
                 </p>
