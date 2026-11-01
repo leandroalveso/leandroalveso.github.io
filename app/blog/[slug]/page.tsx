@@ -185,7 +185,7 @@ export default function BlogPostPage({ params }: Props) {
       </section>
 
       <section className="container mx-auto px-6 pb-24">
-        <div className="mx-auto max-w-6xl lg:grid lg:grid-cols-[minmax(0,1fr)_15rem] lg:items-start lg:gap-12">
+        <div className="mx-auto max-w-6xl lg:grid lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-12">
           {/* First in the DOM so it sits above the article on phones. */}
           <BlogToc className="lg:col-start-2 lg:row-start-1" />
 

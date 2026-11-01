@@ -47,7 +47,7 @@ const experiences = [
   {
     title: 'Principal Consultant',
     company: 'Mímir Software Factory',
-    companyUrl: '',
+    companyUrl: 'https://mimir-software-factory.github.io/',
     location: 'Remote',
     period: 'February 2024 - Present',
     type: 'Consulting · Cloud & Data',
@@ -83,7 +83,7 @@ const experiences = [
   {
     title: 'Software Engineer',
     company: 'Milestone Administradora de Recursos',
-    companyUrl: '',
+    companyUrl: 'https://www.milestones.com.br/',
     location: 'Brazil',
     period: 'January 2023 - January 2024',
     type: 'Full-time · Financial Markets',
@@ -117,8 +117,8 @@ const experiences = [
   },
   {
     title: 'Data Engineer',
-    company: 'Intefy Commercial Intelligence',
-    companyUrl: '',
+    company: 'Intexfy Commercial Intelligence',
+    companyUrl: 'https://intexfy.com/',
     location: 'Florianópolis, SC, Brazil',
     period: 'May 2021 - May 2022',
     type: 'Full-time · Data Provider',
@@ -135,7 +135,7 @@ const experiences = [
   {
     title: 'Data Engineer & Co-Founder',
     company: 'Mímir Hub Software Factory',
-    companyUrl: '',
+    companyUrl: 'https://mimir-software-factory.github.io/',
     location: 'Brazil',
     period: 'September 2019 - May 2021',
     type: 'Co-founder · FinTech / AlgoTrading',

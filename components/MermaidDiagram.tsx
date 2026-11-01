@@ -198,8 +198,10 @@ export default function MermaidDiagram({ code }: MermaidDiagramProps) {
     }
   }, [code])
 
-  // Fit a wide diagram to the reading column, but never below 75% — past that
-  // the labels stop being readable and panning is the better experience.
+  // Fit the diagram to the reading column: at 1:1 a diagram never overflows the
+  // page — the zoom controls and fullscreen are there for reading fine detail.
+  // Recompute when the container resizes (window resize, or entering/leaving
+  // fullscreen, which changes the available width without a resize event).
   useEffect(() => {
     if (!naturalSize) return
 
@@ -207,14 +209,17 @@ export default function MermaidDiagram({ code }: MermaidDiagramProps) {
     if (!scroll) return
 
     const compute = () => {
-      const available = Math.max(160, scroll.clientWidth)
-      setFit(Math.max(0.75, Math.min(1, available / naturalSize.w)))
+      const styles = getComputedStyle(scroll)
+      const paddingX =
+        parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight)
+      const available = Math.max(160, scroll.clientWidth - paddingX)
+      setFit(Math.min(1, available / naturalSize.w))
     }
 
     compute()
     window.addEventListener('resize', compute)
     return () => window.removeEventListener('resize', compute)
-  }, [naturalSize])
+  }, [naturalSize, isFullscreen])
 
   const handleZoomIn = () =>
     setZoom((prev) => Math.min(parseFloat((prev + 0.25).toFixed(2)), 4))
@@ -314,7 +319,7 @@ export default function MermaidDiagram({ code }: MermaidDiagramProps) {
         aria-label="Scrollable diagram"
         onWheel={handleWheel}
       >
-        <div style={sizedStyle}>
+        <div className="mermaid-sizer" style={sizedStyle}>
           <div ref={containerRef} className="mermaid-content" />
         </div>
       </div>

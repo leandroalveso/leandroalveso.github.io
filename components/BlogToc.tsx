@@ -110,7 +110,10 @@ export default function BlogToc({ className = '' }: { className?: string }) {
       </details>
 
       <aside className="hidden lg:block">
-        <div className="sticky top-24">
+        {/* The parent grid stretches this aside to the full article height, so
+            the sticky box can travel alongside the whole post and releases at
+            the end. The max-height keeps long TOCs scrollable while stuck. */}
+        <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto overscroll-contain">
           <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-slate-500">
             <ListTree className="h-3.5 w-3.5" aria-hidden="true" />
             On this page
