@@ -169,7 +169,7 @@ export default function Experience() {
             </p>
             <h2
               className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white"
-              style={{ fontFamily: "'Syne', sans-serif" }}
+              style={{ fontFamily: "var(--font-syne), sans-serif" }}
             >
               Professional <span className="text-indigo-600 dark:text-indigo-400">Experience</span>
             </h2>

@@ -45,7 +45,7 @@ export default function About() {
             <p className="text-indigo-600 dark:text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-3">
               Who I am
             </p>
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white" style={{ fontFamily: "'Syne', sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white" style={{ fontFamily: "var(--font-syne), sans-serif" }}>
               About <span className="text-indigo-600 dark:text-indigo-400">Me</span>
             </h2>
           </motion.div>

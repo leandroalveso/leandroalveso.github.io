@@ -1,0 +1,16 @@
+╔══════════════════════════════════════════════╗
+║          CI/CD Pipeline Simulator            ║
+╚══════════════════════════════════════════════╝
+
+[1/4] Install dependencies (npm ci)............. ✅ PASS (14.8s)
+[2/4] Lint (next lint)......................... ❌ FAIL (3.4s)
+         Error: No ESLint configuration found in /home/mimir/mimir/leandroalveso.github.io
+[3/4] Typecheck (tsc --noEmit)................. ❌ FAIL (4.9s)
+         app/blog/[slug]/page.tsx(52,7): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+[4/4] Build with Next.js (npx next build)..... ❌ FAIL (18.2s)
+         Type error: Argument of type '{ title: string; }' is not assignable to parameter of type 'Metadata'.
+
+══════════════════════════════════════════════
+  Result: 1 PASSED, 3 FAILED
+  Total time: 41.3s
+══════════════════════════════════════════════

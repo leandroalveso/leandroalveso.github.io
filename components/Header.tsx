@@ -49,7 +49,7 @@ export default function Header() {
             <Link
               href="/"
               className="text-xl font-black text-gray-900 dark:text-white tracking-tight"
-              style={{ fontFamily: "'Syne', sans-serif" }}
+              style={{ fontFamily: "var(--font-syne), sans-serif" }}
             >
               Leandro<span className="text-indigo-600 dark:text-indigo-400">.</span>
             </Link>

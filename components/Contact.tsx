@@ -32,7 +32,7 @@ export default function Contact() {
               className="bg-white dark:bg-slate-900 border border-emerald-500/30 rounded-2xl p-12"
             >
               <CheckCircle className="w-14 h-14 text-emerald-400 mx-auto mb-5" />
-              <h2 className="text-3xl font-black text-gray-900 dark:text-white mb-3" style={{ fontFamily: "'Syne', sans-serif" }}>
+              <h2 className="text-3xl font-black text-gray-900 dark:text-white mb-3" style={{ fontFamily: "var(--font-syne), sans-serif" }}>
                 Message Sent!
               </h2>
               <p className="text-gray-500 dark:text-slate-400 mb-8">
@@ -68,7 +68,7 @@ export default function Contact() {
             </p>
             <h2
               className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4"
-              style={{ fontFamily: "'Syne', sans-serif" }}
+              style={{ fontFamily: "var(--font-syne), sans-serif" }}
             >
               Let's <span className="text-indigo-600 dark:text-indigo-400">Connect</span>
             </h2>

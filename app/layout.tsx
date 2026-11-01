@@ -1,14 +1,24 @@
 import type { Metadata } from 'next'
-import { DM_Sans } from 'next/font/google'
+import { DM_Sans, Syne } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
+// Self-hosted fonts (no runtime requests to fonts.googleapis.com).
+// DM Sans: variable weight 100–1000 incl. true italics (used by blog prose <em>).
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-dm-sans',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: 'variable',
+  style: ['normal', 'italic'],
+})
+
+// Syne: variable weight 400–800 (the family's axis max — `font-black` clamps to 800).
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-syne',
+  weight: 'variable',
 })
 
 export const metadata: Metadata = {
@@ -68,15 +78,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${dmSans.variable} ${syne.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Leandro Alves — Blog"
+          href="/feed.xml"
+        />
         <meta name="theme-color" content="#050810" />
         <script
           type="application/ld+json"

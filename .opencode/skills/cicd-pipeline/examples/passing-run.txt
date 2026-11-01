@@ -1,0 +1,13 @@
+╔══════════════════════════════════════════════╗
+║          CI/CD Pipeline Simulator            ║
+╚══════════════════════════════════════════════╝
+
+[1/4] Install dependencies (npm ci)............. ✅ PASS (14.8s)
+[2/4] Lint (next lint)......................... ✅ PASS (3.1s)
+[3/4] Typecheck (tsc --noEmit)................. ✅ PASS (4.2s)
+[4/4] Build with Next.js (npx next build)..... ✅ PASS (52.6s)
+
+══════════════════════════════════════════════
+  Result: 4 PASSED, 0 FAILED
+  Total time: 74.7s
+══════════════════════════════════════════════

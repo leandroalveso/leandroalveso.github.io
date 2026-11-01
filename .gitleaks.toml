@@ -1,0 +1,18 @@
+# Gitleaks configuration for the portfolio.
+#
+# `scripts/security-gitleaks.mjs` runs the pinned, checksum-verified gitleaks
+# binary against the staged diff before every commit. Run a whole-repository
+# scan with: npm run security:scan
+#
+# The allowlist is intentionally small: build output and local tool caches.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Build output and local tool caches"
+paths = [
+  '''^\.next/''',
+  '''^out/''',
+  '''^node_modules/''',
+]

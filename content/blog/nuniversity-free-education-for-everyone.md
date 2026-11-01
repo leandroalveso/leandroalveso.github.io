@@ -5,8 +5,6 @@ tags: ['EdTech', 'RAG', 'AI Agents', 'Mission', 'Vision']
 description: 'Nuniversity is a non-profit universal learning platform: an MVP today, and a target vision where a teacher/researcher AI agent composes on-demand courses for every learner.'
 ---
 
-> *Nuniversity is a non-profit building a universal learning platform for sciences, engineering, coding and technology. Today: an MVP with a growing course library. Target vision: a teacher/researcher AI agent over a RAG index of past courses, composing an on-demand course for every learner, matched to that person's cognitive preferences and learning dynamics.*
-
 ## The Mission
 
 Nuniversity is a non-profit education company built on one conviction: transformational education should be free, and good, for everyone. We focus on the disciplines that most reliably change a person's trajectory: sciences, engineering, coding and technology. What runs today is an MVP learning platform with a growing course library. What we are engineering toward, our target version, is a platform where a teacher/researcher AI agent composes a new course for each learner on demand, grounded in everything the platform has ever taught.
@@ -29,13 +27,13 @@ We decided to flip that.
 
 ## What Is Real Today
 
-To be honest about where we are on the journey. Today, Nuniversity is:
+To be honest about where we are on the journey, here is what Nuniversity is today:
 
 - A live platform at [nuniversity.github.io/en](https://nuniversity.github.io/en/), led by a small founding team based in Brazil and working worldwide.
 - An initial course library focused on foundational sciences, engineering and technology topics.
 - An MVP in active development: forming the team, fundraising, talking to educators and learners, and running the processes that let the library grow.
 
-The personalized, AI assisted course system described in the next section is our target architecture, not a shipped feature. That distinction matters to us: this is a pitch about a future version, built step by step from a real platform.
+The personalised, AI-assisted course system described in the next section is our target architecture, not a shipped feature. That distinction matters to us: this is a pitch about a future version, built step by step from a real platform.
 
 ## The Target Vision: On-Demand Courses for Every Learner
 

@@ -123,7 +123,7 @@ export default function Skills() {
             </p>
             <h2
               className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-4"
-              style={{ fontFamily: "'Syne', sans-serif" }}
+              style={{ fontFamily: "var(--font-syne), sans-serif" }}
             >
               Technical <span className="text-indigo-600 dark:text-indigo-400">Skills</span>
             </h2>

@@ -1,0 +1,17 @@
+# Optional Python-side pre-commit configuration.
+#
+# The primary gate is the Husky hook (.husky/pre-commit), which runs on every
+# commit regardless of environment. This file serves contributors who use the
+# `pre-commit` Python tool and runs the same pinned gitleaks release.
+#
+# The ruff/bandit hooks used in the nuniversity project do not apply here —
+# this repository ships no Python source (the .opencode skill scripts are
+# development tooling only).
+
+repos:
+  # Also available through the Husky hook (`npm run security:gitleaks`), which
+  # pins and checksum-verifies the same release for non-Python contributors.
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks

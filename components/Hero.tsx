@@ -52,7 +52,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-6xl md:text-8xl font-black tracking-tight mb-4 text-gray-900 dark:text-white"
-          style={{ fontFamily: "'Syne', sans-serif", letterSpacing: '-0.03em' }}
+          style={{ fontFamily: "var(--font-syne), sans-serif", letterSpacing: '-0.03em' }}
         >
           Leandro
           <span className="block bg-gradient-to-r from-indigo-500 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent">

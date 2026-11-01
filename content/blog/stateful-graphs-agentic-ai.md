@@ -7,7 +7,7 @@ description: 'How stateful graphs, powered by LangGraph, enable robust agentic A
 
 Agentic AI systems are rapidly moving beyond simple chain-of-thought prompting into something far more powerful: multi-step, stateful reasoning loops that can use tools, retrieve information, and maintain context across extended interactions. At the heart of this evolution lies the **stateful graph** — a computational paradigm in which each node in a directed graph reads and writes to a shared, typed state object as it executes.
 
-In this post, we’ll explore why stateful graphs matter for production agentic systems, and how the combination of **LangGraph**, **RAG**, **memory**, and **Langfuse** creates a robust, observable pipeline.
+In this post, we'll explore why stateful graphs matter for production agentic systems, and how the combination of **LangGraph**, **RAG**, **memory**, and **Langfuse** creates a robust, observable pipeline.
 
 ## From Chains to Graphs
 
@@ -32,12 +32,14 @@ Graph-based architectures solve all of these. By modelling the agent as a **stat
 - **State** is a shared, typed object that persists across node executions and is checkpointed automatically.
 
 ```python
-from langgraph.graph import StateGraph, END
-from typing import TypedDict, List
+from typing import List, TypedDict
+
+from langgraph.graph import END, StateGraph
 
 class AgentState(TypedDict):
     messages: List[dict]
     context: List[str]
+    history: List[dict]
     next_step: str
 
 def call_model(state: AgentState) -> AgentState:
@@ -45,15 +47,23 @@ def call_model(state: AgentState) -> AgentState:
     state["messages"].append(response)
     return state
 
+def execute_tool(state: AgentState) -> AgentState:
+    tool_call = state["messages"][-1].tool_calls[0]
+    state["messages"].append(run_tool(tool_call))  # your tool dispatcher
+    return state
+
 def route_after_model(state: AgentState) -> str:
-    if "TOOL:" in state["messages"][-1].content:
+    last_message = state["messages"][-1]
+    if getattr(last_message, "tool_calls", None):
         return "execute_tool"
     return END
 
 graph = StateGraph(AgentState)
 graph.add_node("model", call_model)
+graph.add_node("execute_tool", execute_tool)
 graph.set_entry_point("model")
 graph.add_conditional_edges("model", route_after_model)
+graph.add_edge("execute_tool", "model")
 ```
 
 This pattern gives you **deterministic control flow** — you know exactly what path your agent took at every step, because the graph is compiled and can be visualised, replayed, and traced.
@@ -84,6 +94,7 @@ def retrieve_context(state: AgentState) -> AgentState:
 
 graph.add_node("retrieve", retrieve_context)
 graph.add_edge("retrieve", "model")
+graph.set_entry_point("retrieve")  # retrieve first, then call the model
 ```
 
 The key insight is that **retrieval is stateful** — the retrieved documents become part of the agent's state, influencing subsequent LLM calls, tool choices, and even the next retrieval step. This creates a feedback loop where the agent can iteratively refine its search based on what it has already learned.
@@ -107,6 +118,8 @@ The graph's `State` object holds the current turn's context — messages, retrie
 Stored externally (in a vector store, key-value store, or database) and loaded at the start of each graph run:
 
 ```python
+from langgraph.graph import END
+
 def load_memory(state: AgentState, config) -> AgentState:
     user_id = config["configurable"]["user_id"]
     state["history"] = memory_store.get_conversation(user_id)
@@ -120,8 +133,11 @@ def save_memory(state: AgentState, config) -> AgentState:
 graph.add_node("load_memory", load_memory)
 graph.add_node("save_memory", save_memory)
 graph.set_entry_point("load_memory")
-# ... after all processing
+graph.add_edge("load_memory", "retrieve")
+
+# In a graph without tool routing, the terminal edge is:
 graph.add_edge("model", "save_memory")
+graph.add_edge("save_memory", END)
 ```
 
 ### Types of Agent Memory
@@ -154,21 +170,26 @@ docker run -p 3000:3000 \
 Integrating Langfuse with LangGraph requires minimal code:
 
 ```python
-from langfuse.callback import CallbackHandler
-from langgraph.checkpoint import MemorySaver
+from langfuse.langchain import CallbackHandler
+from langgraph.checkpoint.memory import MemorySaver
 
 langfuse_handler = CallbackHandler(
     public_key="pk-...",
     secret_key="sk-...",
-    host="http://localhost:3000"
+    host="http://localhost:3000",
 )
 
 graph = StateGraph(AgentState)
 # ... add nodes and edges
 
-compiled_graph = graph.compile(
-    checkpointer=MemorySaver(),
-    callbacks=[langfuse_handler]
+compiled_graph = graph.compile(checkpointer=MemorySaver())
+
+result = compiled_graph.invoke(
+    {"messages": [{"role": "user", "content": "Hello"}]},
+    config={
+        "configurable": {"thread_id": "demo-thread"},
+        "callbacks": [langfuse_handler],
+    },
 )
 ```
 

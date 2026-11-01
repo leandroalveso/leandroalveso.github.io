@@ -25,7 +25,7 @@ export default function Footer() {
             <div className="md:col-span-1">
               <h3
                 className="text-2xl font-black text-gray-900 dark:text-white mb-3"
-                style={{ fontFamily: "'Syne', sans-serif" }}
+                style={{ fontFamily: "var(--font-syne), sans-serif" }}
               >
                 Leandro<span className="text-indigo-400">.</span>
               </h3>

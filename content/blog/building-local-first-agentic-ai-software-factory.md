@@ -5,10 +5,6 @@ tags: ['LangGraph', 'RAG', 'Local LLMs', 'opencode', 'Qdrant', 'Langfuse', 'MCP'
 description: 'How I built an end-to-end AI coding pipeline that runs entirely on a laptop — with LangGraph, RAG, local LLMs, and deterministic skills — and why you might want to do the same.'
 ---
 
-> *How I built an end-to-end AI coding pipeline that runs entirely on a laptop — with LangGraph, RAG, local LLMs, and deterministic skills — and why you might want to do the same.*
-
----
-
 ## The Problem
 
 Every week there's a new AI coding tool. GitHub Copilot, Cursor, Windsurf, Claude Code, Codeium — the list grows faster than any team can evaluate them. They're fantastic products, but they share a common constraint: they ship you a **black box**.
@@ -19,8 +15,6 @@ I wanted something different. I wanted a **software factory** — a pipeline I c
 
 > [!NOTE]
 > This isn't a critique of commercial tools. They solve real problems for millions of developers. This is about what happens when you need to go deeper — when you need to integrate AI into your own toolchain on your own terms.
-
----
 
 ## The Vision: What Is a "Software Factory"?
 
@@ -69,7 +63,7 @@ flowchart TB
     end
 
     subgraph Infra["Local Infrastructure"]
-        OL[(ollama<br/>2 models + embeddings)]
+        OL[(Ollama<br/>2 models + embeddings)]
         QD[(Qdrant<br/>agentic_knowledge)]
         LF[(Langfuse<br/>traces + spans)]
     end
@@ -87,8 +81,6 @@ flowchart TB
     IX --> VS
     SV --> LF
 ```
-
----
 
 ## Architecture Overview
 
@@ -220,7 +212,7 @@ Everything runs on a single machine:
 
 | Component | What | Why |
 |-----------|------|-----|
-| **ollama** | Model serving | Runs qwen2.5-coder:7b (coding) and qwen3:8b (writing/review) |
+| **Ollama** | Model serving | Runs qwen2.5-coder:7b (coding) and qwen3:8b (writing/review) |
 | **Qdrant** | Vector database | Stores embeddings from the Obsidian vault for RAG |
 | **Langfuse** | Observability | Traces every LLM call with token counts and latency |
 | **Postgres + ClickHouse + Redis + MinIO** | Langfuse backing | Required for Langfuse to work |
@@ -229,7 +221,7 @@ Everything runs on a single machine:
 # Everything starts with one command
 docker compose up -d
 
-# ollama runs natively (for GPU access)
+# Ollama runs natively (for GPU access)
 nohup ollama serve > /tmp/ollama.log 2>&1 &
 
 # Verify
@@ -237,8 +229,6 @@ curl http://localhost:11434/api/tags
 curl http://localhost:6333/healthz
 curl http://localhost:3000/api/public/health
 ```
-
----
 
 ## The Two-Tier Model Strategy
 
@@ -254,16 +244,16 @@ flowchart LR
     end
     
     C -->|always loaded| Code[CODING tasks in ~5s]
-    W -.->|3-8s swap| Review[REVIEW / PLANNING tasks]
-    W -.->|3-8s swap| Research[RESEARCH tasks]
-    W -.->|3-8s swap| Writing[WRITING tasks]
+    W -.->|3–8s swap| Review[REVIEW / PLANNING tasks]
+    W -.->|3–8s swap| Research[RESEARCH tasks]
+    W -.->|3–8s swap| Writing[WRITING tasks]
     
     E[nomic-embed-text<br/>274 MB] -->|CPU| Embed[Embedding<br/>always available]
 ```
 
 **The code model** (`qwen2.5-coder:7b`) stays GPU-resident with `keep_alive=-1`. When you need coding, the response starts in ~5 seconds.
 
-**The writer model** (`qwen3:8b`) is swapped in on demand. The swap takes 3-8 seconds — barely noticeable for review or planning tasks that run for 30-90 seconds anyway.
+**The writer model** (`qwen3:8b`) is swapped in on demand. The swap takes 3–8 seconds — barely noticeable for review or planning tasks that run for 30–90 seconds anyway.
 
 ```python
 # Pre-load the writer model into VRAM
@@ -288,13 +278,11 @@ def unload_model(model_name: str) -> str:
 > [!TIP]
 > For a review session, pre-load the writer model *once*, run all your reviews, then unload. The code model stays hot the whole time.
 
----
-
 ## The RAG Pipeline: Obsidian + Qdrant
 
 Knowledge is everything in AI-assisted development. Without good context, LLMs hallucinate. So I built a knowledge base pipeline:
 
-```
+```text
 Write a note → embed via nomic-embed-text → store in Qdrant → retrieve on query
 ```
 
@@ -321,7 +309,7 @@ The point ID is a **deterministic UUID** derived from the file path. This means 
 
 ### How context is retrieved
 
-```
+```text
 User query → embed (768-dim) → Qdrant cosine search (top_k=3) → format → prepend to LLM prompt
 ```
 
@@ -362,8 +350,6 @@ Full explanation with code examples and edge cases.
 ```
 
 Bad notes are too short, have vague titles, or bundle multiple concepts. Good notes have clear structure and use consistent terminology.
-
----
 
 ## The Deterministic Skills System
 
@@ -412,15 +398,13 @@ uv run python .opencode/skills/tracing-observability/scripts/check_ingestion.py
 ```
 
 > [!NOTE]
-> Every script handles connection failures gracefully. If ollama is down, they print the fix command and exit. If Qdrant is unreachable, they show the docker compose command. No crashes, no stack traces.
-
----
+> Every script handles connection failures gracefully. If Ollama is down, they print the fix command and exit. If Qdrant is unreachable, they show the docker compose command. No crashes, no stack traces.
 
 ## Observability with Langfuse
 
 Every pipeline execution is traced:
 
-```
+```text
 Trace (run_workflow)
 ├── Span: classify_node
 │   ├── Input: "Review mcp_server/server.py for bugs"
@@ -444,8 +428,6 @@ uv run python .opencode/skills/tracing-observability/scripts/get_trace.py --trac
 
 > [!IMPORTANT]
 > Langfuse's ingestion API accepts events (HTTP 201) but the background worker may not flush them to ClickHouse in the combined Docker image. If traces are missing, check with `check_ingestion.py` and consider splitting into `langfuse-web` + `langfuse-worker` containers.
-
----
 
 ## Key Design Decisions
 
@@ -488,9 +470,7 @@ Markdown is universal. You can edit it with any text editor, version it with git
 
 ### Why deterministic skills alongside agents?
 
-LLMs are unreliable for operations. A model might hallucinate the nvidia-smi command or guess a wrong Qdrant API endpoint. Skills provide a **guaranteed correct path** — the same inputs always produce the same outputs. Use agents for creative work, skills for deterministic operations.
-
----
+LLMs are unreliable for operations. A model might hallucinate the `nvidia-smi` command or guess a wrong Qdrant API endpoint. Skills provide a **guaranteed correct path** — the same inputs always produce the same outputs. Use agents for creative work, skills for deterministic operations.
 
 ## Infrastructure: The Complete Stack
 
@@ -520,8 +500,6 @@ Langfuse's combined Docker image (`ghcr.io/langfuse/langfuse:latest`) runs both 
 - `langfuse-web` — serves the API and UI
 - `langfuse-worker` — processes ingestion → ClickHouse
 
----
-
 ## Workflow Examples
 
 ### Example 1: Code Review with RAG Context
@@ -533,9 +511,9 @@ Langfuse's combined Docker image (`ghcr.io/langfuse/langfuse:latest`) runs both 
 # What happens:
 # 1. Classify → REVIEW → qwen3:8b (swapped in, ~5s)
 # 2. Retrieve → search Qdrant for "state management" → 3 relevant notes
-# 3. Agent → LLM reviews the code with RAG context (~30-60s)
+# 3. Agent → LLM reviews the code with RAG context (~30–60s)
 # 4. Evaluate → score 8/10 → pass → return
-# Total: ~45-75s
+# Total: ~45–75s
 ```
 
 ### Example 2: Knowledge Base Research
@@ -578,8 +556,6 @@ uv run python -c "import asyncio; from mcp_server.agents.research_agent import r
 uv run python .opencode/skills/model-inference/scripts/vram_check.py
 ```
 
----
-
 ## Lessons Learned
 
 ### What worked well
@@ -602,32 +578,28 @@ uv run python .opencode/skills/model-inference/scripts/vram_check.py
 
 4. **Note quality** — The first batch of vault notes was too short and vague. RAG quality improved dramatically when I started writing detailed notes with clear summaries.
 
----
-
 ## What's Next
 
 The factory is built, but it's far from complete:
 
 1. **Fix Langfuse ingestion** — Switch to split Docker images so traces persist properly
 2. **Code execution tool** — Add a tool that runs tested code in a sandbox
-3. **Automated test generation** — Pipeline that analyzes code, generates tests, runs them, and iterates
+3. **Automated test generation** — Pipeline that analyses code, generates tests, runs them, and iterates
 4. **Multi-repo support** — Index multiple repositories into Qdrant for cross-project RAG
 5. **Web search tool** — Add web search capability for current documentation
 6. **Fine-tuned models** — Fine-tune the 7B model on the project's codebase for better code generation
-
----
 
 ## The Code
 
 Everything is open source:
 
-```
+```text
 ├── opencode.json              # opencode configuration
 ├── docker-compose.yml         # Infrastructure: Langfuse, Qdrant, Postgres, ClickHouse
 ├── mcp_server/                # Python MCP server with LangGraph pipeline
 │   ├── server.py              # 13 MCP tools
 │   ├── graph.py               # LangGraph state graph
-│   ├── model_router.py        # Task classification + ollama API
+│   ├── model_router.py        # Task classification + Ollama API
 │   ├── evaluation.py          # Response quality scoring
 │   ├── agents/                # Code, plan, review, research agents
 │   ├── rag/                   # Qdrant vector store + retriever
@@ -644,8 +616,6 @@ Everything is open source:
     └── changelogs/            # Development history
 ```
 
----
-
 ## Why Build This?
 
 Because control matters.
@@ -656,6 +626,4 @@ A software factory is the opposite. It's a set of interoperable components you c
 
 You're not a passenger. You're the factory engineer.
 
----
-
-*Built with opencode, LangGraph, ollama, Qdrant, Langfuse, and 8 GB of laptop VRAM.*
+*Built with opencode, LangGraph, Ollama, Qdrant, Langfuse, and 8 GB of laptop VRAM.*

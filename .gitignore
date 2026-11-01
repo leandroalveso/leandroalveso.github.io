@@ -1,7 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # local-folders
-.*/
+.*
+
+# …but keep the tracked harness files that start with a dot:
+# OpenCode skills/memory, Husky hooks, gitleaks + Python pre-commit configs
+!.opencode/
+!.husky/
+!.gitleaks.toml
+!.pre-commit-config.yaml
 
 # dependencies
 /node_modules
@@ -42,3 +49,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 # snext-env.d.ts
+
+# python tooling artifacts (.opencode skill tests)
+__pycache__/
+*.pyc

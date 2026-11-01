@@ -1,0 +1,14 @@
+# Husky pre-commit hook.
+#
+# 1. Secret scan: pinned, checksum-verified gitleaks against the staged diff
+#    (scripts/security-gitleaks.mjs, config in .gitleaks.toml).
+# 2. lint-staged: eslint --fix for staged TS/TSX, and a supply-chain gate
+#    (scripts/security-lockfile.mjs) for package.json / package-lock.json
+#    changes — registry signatures must verify; production advisories warn
+#    until the pinned next@14.0.3 line is upgraded (set SECURITY_ENFORCE_AUDIT=1
+#    to make advisories fatal).
+#
+# Bypass once:  SKIP_GITLEAKS=1 / SKIP_SECURITY_LOCKFILE=1 git commit ...
+# Bypass all:   git commit --no-verify
+node scripts/security-gitleaks.mjs || exit 1
+npx lint-staged
