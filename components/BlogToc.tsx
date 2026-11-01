@@ -109,17 +109,17 @@ export default function BlogToc({ className = '' }: { className?: string }) {
         <div className="mt-3">{links}</div>
       </details>
 
-      <aside className="hidden lg:block">
-        {/* The parent grid stretches this aside to the full article height, so
-            the sticky box can travel alongside the whole post and releases at
-            the end. The max-height keeps long TOCs scrollable while stuck. */}
-        <div className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto overscroll-contain">
-          <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-slate-500">
-            <ListTree className="h-3.5 w-3.5" aria-hidden="true" />
-            On this page
-          </p>
-          {links}
-        </div>
+      {/* Sticky on the aside itself: its containing block is the grid item
+          (stretched to the full article height), so it follows the reader down
+          the whole post and releases at the end. Sticky on a child of the aside
+          would have zero travel — the aside is only as tall as its content.
+          The max-height keeps long TOCs scrollable while stuck. */}
+      <aside className="sticky top-24 hidden max-h-[calc(100vh-8rem)] overflow-y-auto overscroll-contain lg:block">
+        <p className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-slate-500">
+          <ListTree className="h-3.5 w-3.5" aria-hidden="true" />
+          On this page
+        </p>
+        {links}
       </aside>
     </div>
   )

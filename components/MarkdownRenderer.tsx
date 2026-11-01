@@ -12,6 +12,7 @@ import dynamic from 'next/dynamic'
 
 import SyntaxHighlighterWrapper, { supportedLanguages } from './FixWrapper'
 import BlogImage from './BlogImage'
+import BlogErrorBoundary from './BlogErrorBoundary'
 
 const MermaidDiagram = dynamic(() => import('./MermaidDiagram'), { ssr: false })
 
@@ -511,7 +512,13 @@ export default function MarkdownRenderer({
           const codeString = String(children).replace(/\n$/, '')
 
           if (language === 'mermaid') {
-            return <MermaidDiagram code={codeString} />
+            // Scoped boundary: a failed lazy chunk for the mermaid bundle
+            // degrades to one diagram card instead of blanking the article.
+            return (
+              <BlogErrorBoundary>
+                <MermaidDiagram code={codeString} />
+              </BlogErrorBoundary>
+            )
           }
 
           if (language === 'math') {

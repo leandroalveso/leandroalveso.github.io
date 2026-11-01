@@ -78,15 +78,17 @@ body {
 
 /* ─── Mermaid Diagram Styles ─────────────────────────────────── */
 
+/* w-fit: the card hugs the diagram instead of spanning the full column, so
+   a narrow diagram doesn't sit in a sea of empty background. */
 .mermaid-wrapper {
-  @apply my-6 rounded-lg border border-gray-300 bg-white/80 overflow-hidden;
+  @apply my-6 mx-auto w-fit max-w-full rounded-lg border border-gray-300 bg-white/80 overflow-hidden;
 }
 .dark .mermaid-wrapper {
   @apply border-gray-700 bg-gray-900/50;
 }
 
 .mermaid-wrapper.fullscreen {
-  @apply fixed inset-0 z-50 m-0 rounded-none border-0 bg-white flex flex-col;
+  @apply fixed inset-0 z-50 m-0 w-full rounded-none border-0 bg-white flex flex-col;
 }
 .dark .mermaid-wrapper.fullscreen {
   @apply bg-gray-950;
@@ -135,8 +137,11 @@ body {
   @apply mx-auto;
 }
 
+/* Block + full width: the SVG's width:100% needs a definite parent. As an
+   inline-block it shrink-wrapped to the SVG's default 300px, leaving the rest
+   of the sizer box empty (the "black space" around diagrams). */
 .mermaid-content {
-  @apply inline-block;
+  @apply block w-full;
 }
 
 .mermaid-content svg {

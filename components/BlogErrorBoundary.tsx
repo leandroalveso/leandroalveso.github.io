@@ -25,6 +25,31 @@ export default class BlogErrorBoundary extends Component<
     return { error }
   }
 
+  /**
+   * A stale open tab keeps the old webpack runtime, whose chunk hashes were
+   * retired by the latest deploy — the import 404s and the article blanks.
+   * Reload once to pick up the fresh HTML; a 60s sessionStorage cooldown
+   * prevents a reload loop when the error is genuine.
+   */
+  componentDidCatch(error: Error) {
+    if (
+      !/Loading chunk|dynamically imported module|Importing module|ChunkLoadError/i.test(
+        error.message
+      )
+    ) {
+      return
+    }
+    try {
+      const key = 'blog:chunk-reload-at'
+      const last = Number(sessionStorage.getItem(key) || 0)
+      if (Date.now() - last < 60_000) return
+      sessionStorage.setItem(key, String(Date.now()))
+      window.location.reload()
+    } catch {
+      // Storage unavailable — the retry card below is the fallback.
+    }
+  }
+
   private reset = () => {
     this.setState({ error: null })
   }
