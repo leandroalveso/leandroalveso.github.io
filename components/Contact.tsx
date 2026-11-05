@@ -158,7 +158,7 @@ export default function Contact() {
 
             {/* Right — form */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.15 }}
               viewport={{ once: true }}

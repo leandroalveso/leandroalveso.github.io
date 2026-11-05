@@ -29,6 +29,21 @@ html {
   scroll-behavior: smooth;
 }
 
+/*
+ * Horizontal overflow guard: if any element is wider than the screen, mobile
+ * browsers (notably Chrome Android) expand the layout viewport to fit it and
+ * scale the whole page down, which makes the site look small and cut off on
+ * the right. Clipping here keeps the page canvas exactly device-width.
+ * `hidden` is the fallback for browsers without `clip`; using `clip` as the
+ * final value avoids creating a scroll container, so smooth scrolling and the
+ * fixed header keep working.
+ */
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
 .dark {
   color-scheme: dark;
 }
