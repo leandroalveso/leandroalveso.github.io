@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-gray-200 dark:border-slate-800/60 shadow-xl shadow-black/5 dark:shadow-black/20'
           : 'bg-transparent'
       }`}
