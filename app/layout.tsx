@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               sameAs: [
                 'https://www.linkedin.com/in/leandroalveso',
                 'https://github.com/leandroalveso',
-                'https://nuniversity.github.io/en',
+                'https://nuniversity.pages.dev/en',
               ],
               address: {
                 '@type': 'PostalAddress',

@@ -9,7 +9,7 @@ description: 'Nuniversity is a non-profit universal learning platform: an MVP to
 
 Nuniversity is a non-profit education company built on one conviction: transformational education should be free, and good, for everyone. We focus on the disciplines that most reliably change a person's trajectory: sciences, engineering, coding and technology. What runs today is an MVP learning platform with a growing course library. What we are engineering toward, our target version, is a platform where a teacher/researcher AI agent composes a new course for each learner on demand, grounded in everything the platform has ever taught.
 
-Explore the current platform at [nuniversity.github.io/en](https://nuniversity.github.io/en/).
+Explore the current platform at [nuniversity.pages.dev/en](https://nuniversity.pages.dev/en/).
 
 ## The Problem
 
@@ -29,7 +29,7 @@ We decided to flip that.
 
 To be honest about where we are on the journey, here is what Nuniversity is today:
 
-- A live platform at [nuniversity.github.io/en](https://nuniversity.github.io/en/), led by a small founding team based in Brazil and working worldwide.
+- A live platform at [nuniversity.pages.dev/en](https://nuniversity.pages.dev/en/), led by a small founding team based in Brazil and working worldwide.
 - An initial course library focused on foundational sciences, engineering and technology topics.
 - An MVP in active development: forming the team, fundraising, talking to educators and learners, and running the processes that let the library grow.
 
@@ -115,6 +115,6 @@ We are at the beginning, and the mission compounds: every course added, every le
 
 If this resonates, as a **learner**, a **volunteer educator**, a **researcher in AI and education**, or a **supporter**, I would love to hear from you.
 
-Visit the platform at **[nuniversity.github.io/en](https://nuniversity.github.io/en/)**, connect on [LinkedIn](https://www.linkedin.com/in/leandroalveso), or [email me](mailto:engleandroalveso@gmail.com).
+Visit the platform at **[nuniversity.pages.dev/en](https://nuniversity.pages.dev/en/)**, connect on [LinkedIn](https://www.linkedin.com/in/leandroalveso), or [email me](mailto:engleandroalveso@gmail.com).
 
 *Education is upstream of everything. Let's build it for everyone.*

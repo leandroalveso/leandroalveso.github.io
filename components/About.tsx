@@ -125,7 +125,7 @@ export default function About() {
                   <span className="text-gray-900 dark:text-white font-semibold">80%</span>, and led a 5 TB Azure-to-AWS
                   data migration. I also co-founded{' '}
                   <a
-                    href="https://nuniversity.github.io/en/"
+                    href="https://nuniversity.pages.dev/en/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-indigo-600 dark:text-indigo-300 font-medium hover:text-indigo-500 dark:hover:text-indigo-200 hover:underline transition-colors"

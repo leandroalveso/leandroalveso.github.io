@@ -7,7 +7,7 @@ const experiences = [
   {
     title: 'Co-Founder',
     company: 'Nuniversity',
-    companyUrl: 'https://nuniversity.github.io/en/',
+    companyUrl: 'https://nuniversity.pages.dev/en/',
     location: 'Remote',
     period: 'July 2026 - Present',
     type: 'Non-Profit · Education',
